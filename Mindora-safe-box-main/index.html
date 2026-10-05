@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MINDORA - Inicio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">MINDORA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="quienes-somos.html">Quiénes somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="container my-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <h1 class="display-6 fw-bold mb-3">MINDORA</h1>
+        <p class="lead mb-4">
+          Somos una empresa de desarrollo de software creada en 2025, enfocada en diseñar
+          soluciones digitales innovadoras que combinan tecnología web y automatización
+          para mejorar procesos educativos y organizacionales.
+        </p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a class="btn btn-primary btn-lg" href="proyectos.html">Ver proyectos</a>
+          <a class="btn btn-outline-primary btn-lg" href="contacto.html">Contactar</a>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">¿Qué hacemos?</h5>
+            <ul class="mb-0">
+              <li>Desarrollo de plataformas web</li>
+              <li>Automatización de procesos digitales</li>
+              <li>Integración de sistemas y dispositivos inteligentes</li>
+              <li>Soluciones tecnológicas a medida</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Servicios -->
+  <main class="container my-5">
+    <h2 class="fw-bold mb-4">Lo que ofrecemos</h2>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold">Webs y plataformas</h5>
+            <p class="mb-0">
+              Creamos plataformas modernas, seguras y funcionales adaptadas a las necesidades de cada proyecto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold">Integraciones</h5>
+            <p class="mb-0">
+              Conectamos sistemas, APIs y dispositivos para lograr procesos más eficientes y automatizados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold">Soporte y mejora</h5>
+            <p class="mb-0">
+              Mantenimiento continuo, optimización del rendimiento y mejoras evolutivas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <!-- Misión y Visión -->
+  <section class="container my-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Nuestra esencia</h2>
+      <p class="text-muted">
+        Tecnología enfocada en mejorar la experiencia educativa.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- MISIÓN -->
+      <div class="col-lg-6">
+        <div class="mission-box h-100">
+          <div class="icon-circle">Misión</div>
+          <h3 class="fw-bold mb-3"></h3>
+          <p class="mb-0">
+            Brindar a los estudiantes acceso rápido, seguro y eficiente a 
+            materiales escolares mediante un sistema de lockers inteligentes 
+            conectados a una plataforma web, facilitando la continuidad de las 
+            actividades académicas y promoviendo el uso responsable de los 
+            recursos educativos.
+          </p>
+        </div>
+      </div>
+
+      <!-- VISIÓN -->
+      <div class="col-lg-6">
+        <div class="vision-box h-100">
+          <div class="icon-circle">Visión</div>
+          <h3 class="fw-bold mb-3"></h3>
+          <p class="mb-0">
+            Ser una solución innovadora líder en instituciones educativas, 
+            reconocida por transformar la gestión de materiales escolares 
+            a través de tecnología inteligente, contribuyendo a una educación 
+            más organizada, accesible y de calidad.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span class="text-muted">© <span id="year"></span> MINDORA</span>
+      <span class="text-muted">Proyecto académico / demostración</span>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/logging.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

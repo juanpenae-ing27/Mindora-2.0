@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MINDORA - Iniciar sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">MINDORA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="quienes-somos.html">Quiénes somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5" style="max-width:440px">
+    <div class="card shadow-sm p-4">
+      <div id="loggedIn" class="text-center d-none">
+        <h1 class="h4 fw-bold">Sesión iniciada</h1>
+        <p class="text-muted">Hola, <strong id="userName"></strong> (<span id="userEmail"></span>)</p>
+        <a class="btn btn-primary" href="admin.html">Ir al panel</a>
+      </div>
+
+      <div id="authForms">
+        <ul class="nav nav-pills nav-fill mb-4">
+          <li class="nav-item"><button class="nav-link active" id="tabLogin" type="button">Iniciar sesión</button></li>
+          <li class="nav-item"><button class="nav-link" id="tabRegister" type="button">Crear cuenta</button></li>
+        </ul>
+
+        <form id="form" novalidate>
+          <div class="mb-3 d-none" id="nameGroup">
+            <label class="form-label" for="name">Nombre</label>
+            <input class="form-control" id="name" autocomplete="name">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="email">Correo</label>
+            <input class="form-control" id="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="password">Contraseña</label>
+            <input class="form-control" id="password" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="alert alert-danger py-2 d-none" id="error" role="alert"></div>
+          <button class="btn btn-primary w-100" id="submit" type="submit">Iniciar sesión</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 border-top">
+    <div class="container text-muted">© <span id="year"></span> Mindora Safe Box</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/logging.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const $ = (id) => document.getElementById(id);
+    let mode = "login";
+
+    function setMode(m) {
+      mode = m;
+      const reg = m === "register";
+      $("tabLogin").classList.toggle("active", !reg);
+      $("tabRegister").classList.toggle("active", reg);
+      $("nameGroup").classList.toggle("d-none", !reg);
+      $("submit").textContent = reg ? "Crear cuenta" : "Iniciar sesión";
+      $("password").autocomplete = reg ? "new-password" : "current-password";
+      $("error").classList.add("d-none");
+    }
+
+    function showState() {
+      const u = MindoraAuth.currentUser();
+      $("loggedIn").classList.toggle("d-none", !u);
+      $("authForms").classList.toggle("d-none", !!u);
+      if (u) { $("userName").textContent = u.name; $("userEmail").textContent = u.email; }
+    }
+
+    $("tabLogin").onclick = () => setMode("login");
+    $("tabRegister").onclick = () => setMode("register");
+
+    $("form").onsubmit = async (e) => {
+      e.preventDefault();
+      const r = mode === "register"
+        ? await MindoraAuth.register($("name").value, $("email").value, $("password").value)
+        : await MindoraAuth.login($("email").value, $("password").value);
+      if (r.error) {
+        $("error").textContent = r.error;
+        $("error").classList.remove("d-none");
+        return;
+      }
+      location.href = "admin.html";
+    };
+
+    showState();
+  </script>
+</body>
+</html>

@@ -1,0 +1,668 @@
+/* =========================
+   PALETA DE COLORES
+========================= */
+
+:root{
+
+  /* Fondo principal */
+  --bg-main: #F4F7FB;
+
+  /* Colores principales */
+  --space-cadet: #162B53;
+  --ucla-blue: #506980;
+  --cyan-azure: #267AC7;
+  --air-blue: #7EA8C9;
+  --pink-lavender: #D8B4D0;
+
+  /* Colores extra */
+  --soft-purple: #B8A4D4;
+  --light-cyan: #A9D6F5;
+  --deep-navy: #0F1E3A;
+  --ice-blue: #E8F4FC;
+  --soft-pink: #F3D9E8;
+
+  /* Textos */
+  --title: #162B53;
+  --text-dark: #243447;
+
+  /* Marca */
+  --brand: #267AC7;
+
+  /* Cards */
+  --card-bg: rgba(255,255,255,.88);
+
+  /* Sombras */
+  --shadow-soft: 0 10px 25px rgba(22, 43, 83, 0.12);
+  --shadow-color: 0 12px 30px rgba(38,122,199,.18);
+}
+
+/* =========================
+   BASE
+========================= */
+
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  background:
+    radial-gradient(circle at top left, rgba(216,180,208,.25), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(38,122,199,.18), transparent 30%),
+    linear-gradient(to bottom, #F4F7FB, #EDF3F8);
+
+  color: var(--text-dark);
+  margin: 0;
+  overflow-x: hidden;
+
+  /* footer siempre al fondo de la ventana */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > main{
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+/* =========================
+   TIPOGRAFÍA
+========================= */
+
+h1{
+  color: var(--space-cadet);
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+h2{
+  color: var(--cyan-azure);
+  font-weight: 750;
+}
+
+h3{
+  color: var(--ucla-blue);
+  font-weight: 700;
+}
+
+h4, h5, h6{
+  color: var(--soft-purple);
+  font-weight: 700;
+}
+
+.section-title{
+  font-weight: 800;
+  color: var(--space-cadet);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after{
+  content: "";
+  width: 60%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    var(--cyan-azure),
+    var(--pink-lavender)
+  );
+
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+
+  border-radius: 999px;
+}
+
+.subtitle{
+  color: var(--pink-lavender);
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+p{
+  color: var(--text-dark);
+  line-height: 1.8;
+}
+
+.text-soft{
+  color: var(--ucla-blue);
+}
+
+.text-light-blue{
+  color: var(--air-blue);
+}
+
+.text-purple{
+  color: var(--soft-purple);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.82),
+      rgba(169,214,245,.18),
+      rgba(216,180,208,.12)
+    ) !important;
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.25);
+
+  box-shadow: 0 4px 20px rgba(0,0,0,.04);
+}
+
+.navbar-brand{
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  background: linear-gradient(
+    90deg,
+    var(--space-cadet),
+    var(--cyan-azure),
+    var(--pink-lavender),
+    var(--soft-purple)
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 4px 12px rgba(38,122,199,.15);
+}
+
+.nav-link{
+  color: var(--ucla-blue) !important;
+  font-weight: 600;
+  position: relative;
+  transition: .3s ease;
+}
+
+.nav-link::after{
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    var(--cyan-azure),
+    var(--pink-lavender)
+  );
+
+  transition: .3s ease;
+}
+
+.nav-link:hover::after{
+  width: 100%;
+}
+
+.nav-link:hover{
+  color: var(--cyan-azure) !important;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:
+    radial-gradient(circle at top left,
+      rgba(216,180,208,.28),
+      transparent 35%), 
+
+    radial-gradient(circle at bottom right,
+      rgba(38,122,199,.20),
+      transparent 35%), 
+
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.92),
+      rgba(169,214,245,.28),
+      rgba(184,164,212,.18)
+    );
+
+  border: 1px solid rgba(255,255,255,.5);
+
+  border-radius: 28px;
+
+  padding: 52px 28px;
+
+  box-shadow:
+    0 15px 40px rgba(22,43,83,.10),
+    0 0 30px rgba(216,180,208,.12);
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a{
+  text-decoration: none;
+  color: var(--cyan-azure);
+  transition: .3s ease;
+}
+
+a:hover{
+  color: var(--soft-purple);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+  border: 1px solid rgba(255,255,255,.4);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.92),
+      rgba(232,244,252,.85)
+    );
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(22,43,83,.10),
+    0 0 20px rgba(216,180,208,.08);
+
+  transition: all .4s ease;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(216,180,208,.12),
+    rgba(38,122,199,.08)
+  );
+
+  opacity: 0;
+
+  transition: .4s ease;
+
+  pointer-events: none;
+}
+
+.card > *{
+  position: relative;
+  z-index: 2;
+}
+
+.card::after{
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    var(--cyan-azure),
+    var(--soft-purple),
+    var(--pink-lavender)
+  );
+}
+
+.card:hover::before{
+  opacity: 1;
+}
+
+.card:hover{
+  transform: translateY(-10px);
+
+  box-shadow:
+    0 18px 40px rgba(22,43,83,.16),
+    0 0 30px rgba(216,180,208,.18);
+}
+
+/* =========================
+   PRODUCT CARDS
+========================= */
+
+.product-card{
+  transition: all .3s ease;
+}
+
+.product-card:hover{
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 12px 28px rgba(22,43,83,.15),
+    0 0 18px rgba(216,180,208,.12);
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn-primary{
+  background: linear-gradient(
+    135deg,
+    var(--cyan-azure),
+    var(--soft-purple)
+  );
+
+  border: none;
+  color: white;
+
+  border-radius: 16px;
+
+  padding: 12px 24px;
+
+  font-weight: 600;
+
+  box-shadow: 0 8px 18px rgba(38,122,199,.25);
+
+  transition: all .35s ease;
+}
+
+.btn-primary:hover{
+  transform: translateY(-3px);
+
+  background: linear-gradient(
+    135deg,
+    var(--space-cadet),
+    var(--ucla-blue)
+  );
+
+  box-shadow: 0 14px 28px rgba(22,43,83,.22);
+}
+
+.btn-outline-primary{
+  border: 2px solid var(--pink-lavender);
+
+  color: var(--space-cadet);
+
+  border-radius: 16px;
+
+  font-weight: 600;
+
+  background: rgba(255,255,255,.55);
+
+  transition: .35s ease;
+}
+
+.btn-outline-primary:hover{
+  background: linear-gradient(
+    135deg,
+    var(--soft-purple),
+    var(--cyan-azure)
+  );
+
+  color: white;
+
+  border-color: transparent;
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.badge-custom{
+  background: linear-gradient(
+    135deg,
+    var(--pink-lavender),
+    var(--soft-purple)
+  );
+
+  color: white;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: .85rem;
+  font-weight: 600;
+
+  display: inline-block;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section-light{
+  background: rgba(232,244,252,.45);
+}
+
+.section-purple{
+  background: rgba(243,217,232,.35);
+}
+
+.section-blue{
+  background: rgba(126,168,201,.12);
+}
+
+.soft-bg{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(169,214,245,.10),
+      rgba(216,180,208,.10)
+    );
+}
+
+/* =========================
+   MISIÓN Y VISIÓN
+========================= */
+
+.mission-box,
+.vision-box{
+  position: relative;
+
+  padding: 42px 34px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  transition: all .4s ease;
+
+  height: 100%;
+
+  color: white;
+
+  backdrop-filter: blur(12px);
+}
+
+/* MISIÓN */
+
+.mission-box{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(22,43,83,.96),
+      rgba(80,105,128,.94)
+    );
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    0 15px 35px rgba(22,43,83,.22),
+    0 0 30px rgba(216,180,208,.10);
+}
+
+/* VISIÓN */
+
+.vision-box{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(38,122,199,.95),
+      rgba(184,164,212,.92)
+    );
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    0 15px 35px rgba(38,122,199,.22),
+    0 0 30px rgba(216,180,208,.12);
+}
+
+/* Hover */
+
+.mission-box:hover,
+.vision-box:hover{
+  transform: translateY(-12px) scale(1.02);
+
+  filter: brightness(1.03);
+}
+
+/* Íconos */
+
+.icon-circle{
+  width: 75px;
+  height: 75px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.14);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(255,255,255,.15);
+
+  box-shadow: inset 0 0 12px rgba(255,255,255,.08);
+}
+
+/* Textos */
+
+.mission-box h3,
+.vision-box h3{
+  color: white;
+  font-size: 1.9rem;
+}
+
+.mission-box p,
+.vision-box p{
+  line-height: 1.9;
+  font-size: 1rem;
+  opacity: .96;
+}
+
+/* Decoraciones */
+
+.mission-box::before,
+.vision-box::before{
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.07);
+
+  top: -80px;
+  right: -80px;
+}
+
+.mission-box::after,
+.vision-box::after{
+  content: "";
+
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.05);
+
+  bottom: -50px;
+  left: -50px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(22,43,83,.96),
+      rgba(38,122,199,.88)
+    );
+
+  color: white;
+
+  padding: 40px 0;
+
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  margin-top: auto;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: var(--ice-blue);
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(
+    var(--cyan-azure),
+    var(--soft-purple)
+  );
+
+  border-radius: 999px;
+}
+
+/* =========================
+   ANIMACIONES SUAVES
+========================= */
+
+.fade-up{
+  animation: fadeUp .7s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
